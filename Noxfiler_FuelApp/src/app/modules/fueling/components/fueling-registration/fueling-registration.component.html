@@ -1,0 +1,74 @@
+<div class="container">
+    <h1>Fueling Form</h1>
+    <form (ngSubmit)="onSubmit(fuelingForm)" #fuelingForm="ngForm">
+        <div class="form-group">
+            <div class="inside name">
+                <label for="fuelDensity">Fuel Density</label>
+                <input type="text" name="fuelDensity" placeholder="0-1" required="required" [(ngModel)]="fueling.fuelDensity">
+            </div>
+            <div class="inside name">
+                <label for="pricePerLitre">Price Per Litre</label>
+                <input type="text" name="pricePerLitre" required="required" [(ngModel)]="fueling.pricePerLitre">
+            </div>
+            <div class="inside name">
+                <label for="filledQuantity">Filled Quantity</label>
+                <input type="text" name="filledQuantity" placeholder="less than 20" required="required" [(ngModel)]="fueling.filledQuantity">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="inside name">
+                <label for="vehicleMileage">Vehicle Mileage</label>
+                <input type="text" name="vehicleMileage" placeholder="In Km/L" required="required" [(ngModel)]="fueling.vehicleMileage">
+            </div>
+            <div class="inside name">
+                <label for="distanceCovered">Distance Covered</label>
+                <input type="text" name="distanceCovered" placeholder="in Kilometers" required="required" [(ngModel)]="fueling.distanceCovered">
+            </div>
+            <div class="inside name">
+                <label for="AllowedDelta">Allowed Delta</label>
+                <input type="text" name="AllowedDelta" placeholder="in L" required="required" [(ngModel)]="fueling.allowedDelta">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="inside ">
+                <label for="timeTravelled">Time Travelled</label>
+                <input type="text" name="timeTravelled" placeholder="in hrs" required="required" [(ngModel)]="fueling.timeTravelled">
+            </div>
+            <div class="inside dropdown">
+                <label for="Vehicle">Registered Vehicle </label>
+                <select name="Vehicle" required="required" [(ngModel)]="fueling.vehicle">
+                    <option *ngFor="let registrationNumber of registrationNumberList"  value={{registrationNumber}}>{{registrationNumber}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="inside dropdown">
+                <label for="Agency">Agency</label>
+                <select id="Agency" name="Agency" required="required" [(ngModel)]="fueling.agency">
+                    <option *ngFor="let agency of agencyList" value={{agency}}>{{agency}}</option>
+                </select>
+            </div>
+            <div class="inside">
+                <label for="dateOfPurchase">Date-Of-Fueling</label>
+                <div style="display: flex;">
+                    <input type="text" id="dateOfPurchase" name="dateOfPurchase" [readonly]="false"
+                        [matDatepicker]="picker" [(ngModel)]="fueling.dateOfFueling">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="inside">
+                <textarea name="comments" cols="50" [(ngModel)]="fueling.comments" placeholder="comments">
+                    Comments
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" style="margin-right: 20px;">Submit</button>
+            <button type="reset">reset</button>
+        </div>
+    </form>
+</div>

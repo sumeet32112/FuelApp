@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>Login</h3>
+        </div>
+      </div>
+      <form class="login-form">
+        <div *ngIf="status">
+        <p>Please enter your login credentials.</p>
+        <input type="text" [(ngModel)]="number" placeholder="Enter your 10-digit mobile number" name="number" maxlength="10" pattern="\d{10}"/>
+        <button (click)="login()">login</button>
+        <h3 class="message">Not registered?
+          <a routerLink="/user">Create an account</a>
+        </h3>
+        </div>
+        <div *ngIf="!status">
+            <p style="color:blueviolet;">Please enter your OTP to log in.</p>
+        <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:5}"></ng-otp-input>
+        <button (click)="login()">Resend</button>
+    </div>
+      </form>
+    </div>
+  </div>
+ 

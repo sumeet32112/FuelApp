@@ -1,0 +1,17 @@
+.app-sidenav-list{
+  .app-sidenav-list-items{
+    text-align: center;
+    cursor: pointer;
+    .sidenav-icon {
+      width: 30px;
+      height: 40px;
+    }
+    .sidenav-text{
+      padding: 0 10px;
+    }
+  }
+}
+
+.menu-pointer{
+  cursor: pointer;
+}

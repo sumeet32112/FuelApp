@@ -1,0 +1,100 @@
+<div class="container">
+    <h1>Vehicle Registration</h1>
+    <form (ngSubmit)="onSubmit(vehicleForm)" #vehicleForm="ngForm">
+        <div class="form-group">
+            <div class="inside dropdown">
+                <label for="vehicleClass">Vehicle Class</label>
+                <select id="vehicleClass" name="vehicleClass" required [(ngModel)]="vehicle.vehicleClass">
+                    <option value="LMV">LMV</option>
+                    <option value="HMV">HMV</option>
+                </select>
+            </div>
+            <div class="inside">
+                <label for="registrationNumber">Registration Number</label>
+                <input type="text" id="registrationNumber" name="registrationNumber" required
+                    [(ngModel)]="vehicle.registrationNumber">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="inside dropdown">
+                <label for="brand">Brand</label>
+                <select id="brand" name="brand" required [(ngModel)]="vehicle.brand">
+                    <option *ngFor="let brand of brandList" value={{brand}}>{{brand}}</option>
+                </select>
+            </div>
+            <div class="inside">
+                <label for="Owner">Owner</label>
+                <input type="text" id="Owner" name="Owner" required [(ngModel)]="vehicle.owner">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="inside dropdown">
+                <label for="fuel-type">Fuel-type</label>
+                <select name="fuel-type" id="fuel-type" required [(ngModel)]="vehicle.fuelType">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                    <option value="CNG/Petrol">CNG/Petrol</option>
+                    <option value="CNG/Diesel">CNG/Diesel</option>
+                </select>
+            </div>
+            <div class="inside">
+                <label for="model">Model</label>
+                <input type="text" name="model" id="Model" required [(ngModel)]="vehicle.model">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="inside dropdown">
+                <label for="month-Manufactured">Month Manufactured</label>
+                <select name="month" id="month-Manufactured" name="monthManufactured" required
+                    [(ngModel)]="vehicle.monthManufactured">
+                    <option value="Jan">Jan</option>
+                    <option value="Fev">Feb</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Sep">Sep</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Dec">Dec</option>
+                </select>
+            </div>
+            <div class="inside">
+                <label for="yearManufactured">Year Manufactured</label>
+                <input type="text" id="yearManufactured" name="yearManufactured" required
+                    [(ngModel)]="vehicle.yearManufactured">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="inside">
+                <label for="dateOfPurchase">Date-Of-Purchase</label>
+                <div style="display: flex;">
+                    <input type="text" id="dateOfPurchase" name="dateOfPurchase" [readonly]="false"
+                        [matDatepicker]="picker" [(ngModel)]="vehicle.dateOfPurchase">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="inside name">
+                <label for="engine_capacity">Engine Capacity</label>
+                <input type="text" id="engine_capacity" name="engine_capacity" required
+                    [(ngModel)]="vehicle.engineCapacity">
+            </div>
+            <div class="inside">
+                <label for="color">Colour</label>
+                <input type="text" name="color" id="color" required [(ngModel)]="vehicle.colour">
+            </div>
+        </div>
+        <div class="form-buttons">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

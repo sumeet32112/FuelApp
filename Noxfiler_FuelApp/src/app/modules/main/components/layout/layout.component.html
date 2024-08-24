@@ -1,0 +1,11 @@
+<app-header
+[menuIconView]="iconView"
+(toggleSideNavView)="handleMenuChange($event)"></app-header>
+<mat-drawer-container class="layout-container">
+    <mat-drawer [ngClass]="iconView ? 'app-sidenav-icon-view' : 'app-sidenav-image-view' " mode="side" [opened] = "iconView">
+      <app-sidenav  [menuIconView]="iconView"></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content [ngClass]="iconView ? 'app-drawer-on-icon-view' : 'app-drawer-on-image-view'" class="content">
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>

@@ -1,0 +1,19 @@
+<mat-toolbar class="layout-header">
+
+    <button mat-icon-button class="toggle-icon" aria-label="Boxfile Office dashboard menu" (click)="handleToggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img class="app-header-logo" src="../../../../../assets/logo.png">
+    <span class="spacer"></span>
+  
+    <div class="logger-detail">
+      <span class="logger-full-name">{{username}}</span>
+      <span class="logger-menu" [matMenuTriggerFor]="userMenu">
+        <mat-icon class="dropdown-icon">keyboard_arrow_down</mat-icon>
+      </span>
+    </div>
+  </mat-toolbar>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item >About</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>

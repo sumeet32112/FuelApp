@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Raise Complaint</h2>
+    <form (ngSubmit)="submitComplaintForm()" >
+      <div class="form-group">
+        
+        <label for="agencyName">Agency Name:</label>
+        <select id="Agency" name="Agency" required="required" [(ngModel)]="agencyName" (ngModelChange)="onAgencyNameChange()" >
+          <option *ngFor="let agency of agencyList" [value]="agency"> {{agency}} </option>
+        </select>
+
+        <div class="fuels" *ngFor="let element of ELEMENT_DATA; let i = index">
+          <p>Delta({{ element.delta }})</p>
+          <p>{{ formatDate(element.date) }}</p>
+          <p>{{ element.registrationNumber }}</p>
+          <div (click)="removeEntry(i)" class="remove-button">X</div>
+        </div>
+        <label for = "escalationLevel"> Escalation Level: </label>
+        <select id="Escalation" name="escalationLevel" required="required" [(ngModel)]="escalationLevel" >
+          <option value="1"> 1 </option>
+          <option value="2"> 2 </option>
+        </select>
+        <div class="attachments">
+          <label for="attachment" class="file-input-label">Select File: </label>
+          <input type="file" id="attachment" name="attachment" (change)="onFileSelected($event)" />        
+          <div class = 'attachment_files' *ngIf="selectedAttachments.length > 0">
+            <div *ngFor="let attachment of selectedAttachments; let i = index" class="attachment-box">
+              {{ attachment.name.slice(0, attachment.name.indexOf(' ')) }}
+            <button class="btn" type="button" (click)="removeAttachment(i)">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary" [disabled]="isButtonDisabled() || isProcessing">
+        {{ isProcessing ? 'Processing' : 'Submit' }}</button>
+    </form>
+</div>
+  

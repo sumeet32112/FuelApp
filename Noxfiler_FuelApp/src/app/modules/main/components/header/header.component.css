@@ -1,0 +1,20 @@
+.layout-header {
+    background: #ffffff;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .logger-full-name {
+    font-size: 14px;
+  }
+  .dropdown-icon {
+    line-height: 40px;
+  }
+
+  .logger-menu{
+    cursor: pointer;
+  }
+.app-header-logo{
+  height: 50px;
+  margin-left: 10px;
+}
